@@ -42,6 +42,16 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void OnDamageTaken()
+    {
+        switch (state) {
+            case EnemyState.PATROLLING:
+            case EnemyState.RESTING:
+                state = EnemyState.PROVOKED;
+                break;
+        }
+    }
+
     void EngageTarget()
     {
         FaceTarget();
