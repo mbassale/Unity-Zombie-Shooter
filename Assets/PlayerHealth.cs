@@ -30,6 +30,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void StartDeath()
     {
-        print("You Died!");
+        GetComponent<DeathHandler>().HandleDeath();
     }
 }
