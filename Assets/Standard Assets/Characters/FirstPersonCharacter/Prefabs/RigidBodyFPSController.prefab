@@ -411,6 +411,7 @@ MonoBehaviour:
   hitEffect: {fileID: 4827052110560905236, guid: 457c72684facd004fb4d2ea83fc27a59,
     type: 3}
   ammoSlot: {fileID: 1767566825}
+  timeBetweenShots: 0.1
 --- !u!114 &8109755522935725985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +432,7 @@ MonoBehaviour:
   hitEffect: {fileID: 4827052110560905236, guid: 457c72684facd004fb4d2ea83fc27a59,
     type: 3}
   ammoSlot: {fileID: 1767566825}
+  timeBetweenShots: 0.5
 --- !u!1001 &7202221891795362237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -442,6 +444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carbine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337074158997199750, guid: ada2587319194f542957a8c2ae277cb9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2337074158996965286, guid: ada2587319194f542957a8c2ae277cb9,
         type: 3}
