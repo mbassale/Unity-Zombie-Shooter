@@ -15,6 +15,11 @@ public class Weapon : MonoBehaviour
 
     private bool canShoot = true;
 
+    private void OnEnable()
+    {
+        canShoot = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
