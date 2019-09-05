@@ -359,7 +359,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b76306b30705647b1992f4f63de261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 10
+  ammoSlots:
+  - type: 0
+    amount: 100
+  - type: 0
+    amount: 100
 --- !u!1 &1392353454931647967
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7076797711299486517}
+  - component: {fileID: 74453047}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -392,6 +397,19 @@ Transform:
   m_Father: {fileID: 400000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &74453047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392353454931647967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998222ee18ed6134085f2cd4c2d023af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: 0
 --- !u!114 &261488064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,13 +423,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FPCamera: {fileID: 2000000}
-  range: 100
-  damage: 20
+  range: 500
+  damage: 50
   muzzleFlash: {fileID: 1400933009446450461}
   hitEffect: {fileID: 4827052110560905236, guid: 457c72684facd004fb4d2ea83fc27a59,
     type: 3}
   ammoSlot: {fileID: 1767566825}
-  timeBetweenShots: 0.1
+  timeBetweenShots: 1
+  ammoType: 0
 --- !u!114 &8109755522935725985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,13 +445,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FPCamera: {fileID: 2000000}
   range: 200
-  damage: 50
+  damage: 25
   muzzleFlash: {fileID: 6568209155040463551, guid: ab981f501cdfcfc4fad8a7c90736dc0e,
     type: 3}
   hitEffect: {fileID: 4827052110560905236, guid: 457c72684facd004fb4d2ea83fc27a59,
     type: 3}
   ammoSlot: {fileID: 1767566825}
-  timeBetweenShots: 0.5
+  timeBetweenShots: 0.25
+  ammoType: 0
 --- !u!1001 &7202221891795362237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -590,6 +610,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_Name
       value: Ak-47
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_LocalPosition.x
