@@ -25,6 +25,15 @@ public class Ammo : MonoBehaviour
         return 0;
     }
 
+    public void IncreaseCurrentAmmo(AmmoType ammoType, int amount)
+    {
+        var ammoSlot = ammoSlots.First(slot => slot.type == ammoType);
+        if (ammoSlot != null)
+        {
+            ammoSlot.amount += amount;
+        }
+    }
+
     public void ReduceCurrentAmmo(AmmoType ammoType)
     {
         var ammoSlot = ammoSlots.First(slot => slot.type == ammoType);
