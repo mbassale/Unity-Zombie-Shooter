@@ -38,6 +38,7 @@ public class EnemyAI : MonoBehaviour
             navMeshAgent.isStopped = true;
             navMeshAgent.enabled = false;
             enabled = false;
+            return;
         }
         distanceToTarget = Vector3.Distance(target.position, transform.position);
         if (state == EnemyState.PROVOKED || state == EnemyState.ATACKING)
