@@ -1,30 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField] private int amount = 10;
-
-    public int CurrentAmmo
+    [System.Serializable]
+    private class AmmoSlot
     {
-        get { return amount; }
+        public AmmoType type;
+        public int amount;
     }
 
-    public void ReduceCurrentAmmo()
+    [SerializeField] private AmmoSlot[] ammoSlots;
+
+    public int GetCurrentAmmo(AmmoType ammoType)
     {
-        amount--;
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        var ammoSlot = ammoSlots.First(slot => slot.type == ammoType);
+        if (ammoSlot != null)
+        {
+            return ammoSlot.amount;
+        }
+
+        return 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ReduceCurrentAmmo(AmmoType ammoType)
     {
-        
+        var ammoSlot = ammoSlots.First(slot => slot.type == ammoType);
+        if (ammoSlot != null)
+        {
+            ammoSlot.amount--;
+        }
     }
 }
