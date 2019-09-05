@@ -21,16 +21,24 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     EnemyState state = EnemyState.RESTING;
+    private EnemyHealth enemyHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (enemyHealth.IsDead)
+        {
+            navMeshAgent.isStopped = true;
+            navMeshAgent.enabled = false;
+            enabled = false;
+        }
         distanceToTarget = Vector3.Distance(target.position, transform.position);
         if (state == EnemyState.PROVOKED || state == EnemyState.ATACKING)
         {

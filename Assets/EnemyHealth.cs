@@ -5,18 +5,11 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100f;
+    private bool isDead = false;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public bool IsDead
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        get { return isDead; }
     }
 
     public void TakeDamage(int damage)
@@ -25,12 +18,18 @@ public class EnemyHealth : MonoBehaviour
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
-            StartDeath();
+            Die();
         }
     }
 
-    private void StartDeath()
+    private void Die()
     {
-        Destroy(gameObject);
+        if (isDead) return;
+        isDead = true;
+        var animator = GetComponent<Animator>();
+        if (animator)
+        {
+            animator.SetTrigger("die");
+        }
     }
 }
